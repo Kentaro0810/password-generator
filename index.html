@@ -1,1 +1,77 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>パスワード自動生成ツール</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <section class="card">
+      <h1>パスワード自動生成ツール</h1>
+      <p class="description">
+        安全な乱数を使って、ランダムなパスワードを生成します。
+      </p>
 
+      <div class="password-area">
+        <input id="passwordOutput" type="text" readonly placeholder="ここにパスワードが表示されます" />
+        <button id="copyButton" type="button">コピー</button>
+      </div>
+
+      <p id="message" class="message"></p>
+
+      <div class="setting">
+        <label for="lengthRange">
+          文字数：<span id="lengthValue">16</span>
+        </label>
+        <input id="lengthRange" type="range" min="8" max="64" value="16" />
+      </div>
+
+      <div class="options">
+        <label>
+          <input id="useUppercase" type="checkbox" checked />
+          大文字 A-Z
+        </label>
+
+        <label>
+          <input id="useLowercase" type="checkbox" checked />
+          小文字 a-z
+        </label>
+
+        <label>
+          <input id="useNumbers" type="checkbox" checked />
+          数字 0-9
+        </label>
+
+        <label>
+          <input id="useSymbols" type="checkbox" checked />
+          記号 !@#...
+        </label>
+
+        <label>
+          <input id="excludeSimilar" type="checkbox" />
+          紛らわしい文字を除外する
+        </label>
+      </div>
+
+      <div class="strength">
+        <p>強度目安：<span id="strengthText">---</span></p>
+        <div class="strength-bar">
+          <div id="strengthBarFill"></div>
+        </div>
+      </div>
+
+      <button id="generateButton" class="generate-button" type="button">
+        パスワードを生成
+      </button>
+
+      <p class="note">
+        ※ このツールは生成したパスワードを保存しません。
+      </p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
